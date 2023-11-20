@@ -1,5 +1,4 @@
-import android.content.ContentValues
-import android.database.sqlite.SQLiteDatabase
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
@@ -41,7 +40,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnResumo.setOnClickListener {
-            // Implemente a chamada para a Activity de Resumo aqui
+            
+            val intent = Intent(this@MainActivity, ResumoActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -63,9 +64,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             val newRowId = db.insert("transacoes", null, values)
-            Toast.makeText(this, "Transação cadastrada com ID $newRowId", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Transação $newRowId", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Preencha corretamente", Toast.LENGTH_SHORT).show()
         }
     }
 }
